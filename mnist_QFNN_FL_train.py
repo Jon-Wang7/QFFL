@@ -18,7 +18,7 @@ from opacus.utils.batch_memory_manager import BatchMemoryManager
 BATCH_SIZE=600
 EPOCH=5
 LR=0.1
-DEVICE=torch.device('cuda')
+DEVICE=torch.device('cpu')
 
 
 

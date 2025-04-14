@@ -16,7 +16,7 @@ import time
 BATCH_SIZE=5000
 EPOCH=50
 LR=0.001
-DEVICE=torch.device('cuda')
+DEVICE=torch.device('mps')
 logger=get_logger('CNN_train')
 setup_seed(777)
 
@@ -35,15 +35,15 @@ data_test = datasets.MNIST(root="data/mnist/test",
 data_loader_train = torch.utils.data.DataLoader(dataset=data_train,
                                                 batch_size = BATCH_SIZE,
                                                 shuffle = True,
-                                                 num_workers=2)
+                                                num_workers=0)
 
 data_loader_test = torch.utils.data.DataLoader(dataset=data_test,
                                                batch_size = BATCH_SIZE,
                                                shuffle = True,
-                                                num_workers=2)
+                                               num_workers=0)
 
 model=CNN().to(DEVICE)
-model=torch.load('result/model/CNN.pkl')
+# model=torch.load('result/model/CNN.pkl')  # 注释掉这行
 optimizer=torch.optim.AdamW(model.parameters(),lr=LR)
 loss_func=nn.CrossEntropyLoss()
 

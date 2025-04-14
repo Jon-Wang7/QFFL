@@ -6,7 +6,7 @@ from mni_QFNN import Qfnn
 from utils import setup_seed
 
 
-DEVICE=torch.device('cuda')
+DEVICE=torch.device('cpu')
 NAME='mnist_QFNN_gas_q4_star'
 setup_seed(777)
 node=9
